@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">Portafolio</string>
-    <string-array name="deptos">
-        <item>Seleccione un depto</item>
-        <item>Usulutan</item>
-        <item>San Miguel</item>
-        <item>La Union</item>
-        <item>Morazan</item>
+    <string-array name="operaciones">
+        <item>suma</item>
+        <item>resta</item>
+        <item>multiplicacion</item>
+        <item>division</item>
+        <item>Exponente</item>
+        <item>Porcentaje</item>
+        <item>Modulo</item>
+        <item>Factoreo</item>
     </string-array>
     </resources>
