@@ -2,6 +2,7 @@ package com.example.portafolio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -19,98 +20,75 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    TabHost tbhconversores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tbhconversores = (TabHost) findViewById(R.id.tbhconversores);
-        tbhconversores.setup();
+        Button buttonMonedas = (Button)findViewById(R.id.btnMonedas);
+        Button buttonMasa = (Button)findViewById(R.id.btnMasa);
+        Button buttonVolumen = (Button)findViewById(R.id.btnVolumen);
+        Button buttonLongitud = (Button)findViewById(R.id.btnLongitud);
+        Button buttonAlmac = (Button)findViewById(R.id.btnAlmacenamiento);
+        Button buttoTiempo = (Button)findViewById(R.id.btnTiempo);
+        Button buttoTransdatos = (Button)findViewById(R.id.btnTransdatos);
 
-        tbhconversores.addTab(tbhconversores.newTabSpec("D").setContent(R.id.universal).setIndicator("Universal"));
-        tbhconversores.addTab(tbhconversores.newTabSpec("A").setContent(R.id.area).setIndicator("Area"));
-
-    }
-
-    public void Calcular1(View v) {
-        try {
-            TextView tempval = (TextView) findViewById(R.id.txtnum2);
-
-            double cant = Double.parseDouble(tempval.getText().toString());
-            Spinner spn;
-            double valores[][] = {
-                    new double[]{1, 9, 3, 10.763910417, 6768.34687, 75820.984975, 107.639},
-            };
-            int de = 0, a = 0;
-            double resp = 0;
-            switch (tbhconversores.getCurrentTabTag()) {
-                case "A":
-
-                    spn = (Spinner) findViewById(R.id.optoperaciones);
-
-                    de = spn.getSelectedItemPosition();
-                    spn = (Spinner) findViewById(R.id.optoperaciones1);
-                    a = spn.getSelectedItemPosition();
-                    resp = cant * valores[0][a] / valores[0][de];
-                    break;
-
+        buttonMonedas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent netxM = new Intent(MainActivity.this,Monedas.class);
+                startActivity(netxM);
             }
-            tempval = (TextView) findViewById(R.id.lblRespuesta);
-            tempval.setText("respuesta: " + resp);
+        });
 
-
-        } catch (Exception ex) {
-            ex.getMessage();
-        }
-    }
-
-    public void Convertir(View v) {
-        try {
-            TextView tempval1 = (TextView) findViewById(R.id.txt1);
-            TextView tempval2 = (TextView) findViewById(R.id.txt2);
-            TextView tempval3 = (TextView) findViewById(R.id.txt3);
-
-            int cantidad, uni1, uni2, div = 0, res = 0;
-
-            try {
-                cantidad = Integer.parseInt(tempval1.getText().toString());
-            } catch (NumberFormatException e) {
-                cantidad = 0;
+        buttonMasa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent netxM = new Intent(MainActivity.this,Masa.class);
+                startActivity(netxM);
             }
+        });
 
-            try {
-                uni1 = Integer.parseInt(tempval2.getText().toString());
-            } catch (NumberFormatException e) {
-                uni1 = 0;
+        buttonVolumen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent netxM = new Intent(MainActivity.this,Volumen.class);
+                startActivity(netxM);
             }
+        });
 
-            try {
-                uni2 = Integer.parseInt(tempval3.getText().toString());
-            } catch (NumberFormatException e) {
-                uni2 = 0;
+        buttonLongitud.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent netxM = new Intent(MainActivity.this,Longitud.class);
+                startActivity(netxM);
             }
+        });
 
-            if (tempval3.getText().toString().equals("")) {
-                div = cantidad / uni1;
-                res = cantidad % uni1;
-
-                tempval3.setText(div + "/" + res);
-            } else if (tempval1.getText().toString().equals("")) {
-
-                String[] arrOfStr = tempval3.getText().toString().split("/", 2);
-
-                div = Integer.parseInt(arrOfStr[0]) * uni1 + Integer.parseInt(arrOfStr[1]);
-
-
-                tempval1.setText(Integer.toString(div));
+        buttonAlmac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent netxM = new Intent(MainActivity.this,Almacenamiento.class);
+                startActivity(netxM);
             }
+        });
 
-        } catch (Exception ex) {
-            Toast toast1 = Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_SHORT);
-            toast1.show();
-        }
+        buttoTiempo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent netxM = new Intent(MainActivity.this,Tiempo.class);
+                startActivity(netxM);
+            }
+        });
+
+        buttoTransdatos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent netxM = new Intent(MainActivity.this,Transdatos.class);
+                startActivity(netxM);
+            }
+        });
 
     }
 }

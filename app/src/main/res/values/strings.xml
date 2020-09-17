@@ -1,12 +1,92 @@
 <resources>
     <string name="app_name">Portafolio</string>
-    <string-array name="operaciones">
-    <item>Pie Cuadrado</item>
-    <item>Vara Cuadrada</item>
-    <item>Yarda Cuadrada</item>
-    <item>Metro Cuadrado</item>
-    <item>Tareas</item>
-    <item>Manzana</item>
-    <item>Hectarea</item>
+    <string-array name="Monedas">
+        <item>Euro </item>
+        <item>Bolivares </item>
+        <item>Libras Esterlinas </item>
+        <item>Pesos (mexicano)</item>
+        <item>Pesos (colombiano)</item>
+        <item>Pesos (chilenos)</item>
+        <item>Pesos (uruguayos)</item>
+        <item>Colones (costa rica)</item>
+        <item>Guarines (paraguayos)</item>
+        <item>Dolar </item>
+
     </string-array>
-</resources>
+
+    <string-array name="Masa">
+        <item>Kilogramos</item>
+        <item>Gramos</item>
+        <item>Onzas</item>
+        <item>Centigramos</item>
+        <item>Miligramos</item>
+        <item>Decigramos</item>
+        <item>Hectogramo</item>
+        <item>Decagramos</item>
+        <item>Arrobas</item>
+        <item>Libras</item>
+
+    </string-array>
+
+    <string-array name="Longitud">
+        <item>Kilometro</item>
+        <item>Hectometro</item>
+        <item>Decametro</item>
+        <item>Decimetro</item>
+        <item>Centimetro</item>
+        <item>Milimetro</item>
+        <item>Pulgada</item>
+        <item>Pie</item>
+        <item>Yarda</item>
+        <item>Metro</item>
+
+    </string-array>
+
+    <string-array name="Transdatos">
+        <item>Gigabyte por segundos</item>
+        <item>Megabit por segundos</item>
+        <item>Kilobyte por segundos</item>
+        <item>Terabyte por segundos</item>
+
+    </string-array>
+
+    <string-array name="Volumen">
+        <item>Litro</item>
+        <item>Metro Cubico</item>
+        <item>Mililitro</item>
+        <item>Galon Imperial</item>
+        <item>Pinta Imperial</item>
+        <item>Tasa Imperial</item>
+        <item>Pulguda Cubica </item>
+        <item>Pie Cubico</item>
+        <item>Cuchara Estadounidense</item>
+        <item> Galon Estadounidense</item>
+    </string-array>
+
+    <string-array name="Tiempo">
+        <item>Segundos</item>
+        <item>Minuto</item>
+        <item>Hora</item>
+        <item>Dia</item>
+        <item>Semana</item>
+        <item>Mes</item>
+        <item>Año Natural </item>
+        <item>Decada</item>
+        <item>Siglo</item>
+        <item> </item>
+    </string-array>
+
+    <string-array name="Almacenamiento">
+        <item>Bit</item>
+        <item>Byte</item>
+        <item>Kilobit</item>
+        <item>Megabit</item>
+        <item>Gigabit</item>
+        <item>Terabit</item>
+        <item>Petabit</item>
+        <item>Kilobyte</item>
+        <item>Megabyte</item>
+        <item>Gigabyte</item>
+
+    </string-array>
+    </resources>

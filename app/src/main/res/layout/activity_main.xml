@@ -4,134 +4,111 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#99CD2C"
     tools:context=".MainActivity">
 
-    <TabHost
-        android:id="@+id/tbhconversores"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Conversores"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:textStyle="italic" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <Button
+        android:id="@+id/btnMonedas"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="90dp"
+        android:background="#5BA9FF"
+        android:fontFamily="sans-serif-black"
+        android:text="Monedas"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#000000"
+        android:textStyle="italic" />
 
-            <TabWidget
-                android:id="@android:id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#95EB00" />
+    <Button
+        android:id="@+id/btnMasa"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="170dp"
+        android:background="#5BA9FF"
+        android:fontFamily="sans-serif-black"
+        android:text="Masa"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#000000"
+        android:textStyle="italic" />
 
-            <FrameLayout
-                android:id="@android:id/tabcontent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+    <Button
+        android:id="@+id/btnVolumen"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="250dp"
+        android:background="#5BA9FF"
+        android:fontFamily="sans-serif-black"
+        android:text="Volumen"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#000000"
+        android:textStyle="italic" />
 
-                <RelativeLayout
-                    android:id="@+id/universal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#418DFF  "
-                    android:orientation="vertical">
+    <Button
+        android:id="@+id/btnLongitud"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="330dp"
+        android:background="#5BA9FF"
+        android:fontFamily="sans-serif-black"
+        android:text="Longitud"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#000000"
+        android:textStyle="italic" />
 
-                    <EditText
-                        android:id="@+id/txt3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="80dp"
-                        android:layout_marginTop="240dp"
-                        android:ems="10"
-                        android:hint="Valor"
-                        android:inputType="text" />
+    <Button
+        android:id="@+id/btnAlmacenamiento"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="410dp"
+        android:background="#5BA9FF"
+        android:fontFamily="sans-serif-black"
+        android:text="Almacenamiento"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#000000"
+        android:textStyle="italic" />
 
-                    <EditText
-                        android:id="@+id/txt2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="80dp"
-                        android:layout_marginTop="150dp"
-                        android:ems="10"
-                        android:hint="Unidades"
-                        android:inputType="numberDecimal" />
+    <Button
+        android:id="@+id/btnTiempo"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="490dp"
+        android:background="#5BA9FF"
+        android:fontFamily="sans-serif-black"
+        android:text="Tiempo"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#000000"
+        android:textStyle="italic" />
 
-                    <EditText
-                        android:id="@+id/txt1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="80dp"
-                        android:layout_marginTop="50dp"
-                        android:ems="10"
-                        android:hint="Cantidad"
-                        android:inputType="numberDecimal" />
-
-                    <Button
-                        android:id="@+id/btnConvertir"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="150dp"
-                        android:layout_marginTop="364dp"
-                        android:background="#65A478"
-                        android:onClick="Convertir"
-                        android:text="Convertir"
-                        tools:ignore="OnClick" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/area"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <Spinner
-                        android:id="@+id/optoperaciones"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="250dp"
-                        android:entries="@array/operaciones"/>
-                    <Spinner
-                        android:id="@+id/optoperaciones1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="50dp"
-                        android:entries="@array/operaciones"/>
-                    <EditText
-                        android:id="@+id/txtnum2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="80dp"
-                        android:layout_marginTop="240dp"
-                        android:ems="10"
-                        android:hint="Numero"
-                        android:inputType="numberDecimal" />
-                    <Button
-                        android:id="@+id/btnConvertir1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="150dp"
-                        android:layout_marginTop="364dp"
-                        android:onClick="Calcular1"
-                        android:text="Calcular "
-                        tools:ignore="OnClick" />
-                    <TextView
-                        android:id="@+id/lblRespuesta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Respuesta: "
-                        android:layout_marginTop="450dp"
-                        android:layout_marginLeft="156dp"
-                        />
-
-
-                </RelativeLayout>
-
-
-            </FrameLayout>
-
-        </LinearLayout>
-
-    </TabHost>
+    <Button
+        android:id="@+id/btnTransdatos"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="570dp"
+        android:background="#5BA9FF"
+        android:fontFamily="sans-serif-black"
+        android:text="Transferencia de datos"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#000000"
+        android:textStyle="italic" />
 
 </RelativeLayout>
