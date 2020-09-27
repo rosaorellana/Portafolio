@@ -2,84 +2,104 @@ package com.example.portafolio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
-    SensorManager sensorManager;
-    Sensor sensor;
-    SensorEventListener sensorEventListener;
-
-    @Override
-    protected void onPause() {
-        detener();
-        super.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        iniciar();
-        super.onResume();
-    }
-
+    TiendaOBD DatosTO;
+    Cursor ProductosTO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-        if (sensor == null) {
-            finish();
+        obtenerDatosProductos();
+
+        ImageButton ibmostrar = (ImageButton) findViewById(R.id.ibmostrar);
+        ibmostrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent AgregarProductos = new Intent(MainActivity.this, Guardar.class);
+                startActivity(AgregarProductos);
+            }
+        });
+
+    }
+    void obtenerDatosProductos(){
+        DatosTO = new TiendaOBD(getApplicationContext(), "", null, 1);
+        ProductosTO = DatosTO.mantenimientoProductos("consultar", null);
+        if( ProductosTO.moveToFirst() ){
+            mostrarDatosProductos();
+        } else{
+            Toast.makeText(getApplicationContext(), "Ningun Registro",Toast.LENGTH_LONG).show();
+            Intent agregarProductos = new Intent(MainActivity.this, Guardar.class);
+            startActivity(agregarProductos);
         }
-        final TextView lblSensorLuz = (TextView) findViewById(R.id.lblSensorLuz);
-        sensorEventListener = new SensorEventListener() {
+    }
+
+    void mostrarDatosProductos(){
+        ListView ltsProductos = (ListView)findViewById(R.id.ltsProductos);
+        final ArrayList<String> stringArrayList = new ArrayList<String>();
+
+        final ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1,stringArrayList);
+        ltsProductos.setAdapter(stringArrayAdapter);
+
+
+        do {
+            stringArrayList.add( ProductosTO.getString(1) + "\n" + ProductosTO.getString(2) + "\n" + ProductosTO.getString(3)+ "\n" + ProductosTO.getString(4) + "\n" + ProductosTO.getString(5)+ "\n" + ProductosTO.getString(0) + "\n" );
+
+        }while(ProductosTO.moveToNext());
+        stringArrayAdapter.notifyDataSetChanged();
+
+
+        TextView BuscarProductos = (TextView) findViewById(R.id.txtBuscarProductos);
+        BuscarProductos.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onSensorChanged(SensorEvent sensorEvent) {
-                double luz = sensorEvent.values[0];
-                if (luz >= 0 && luz <= 15000) {
-                    getWindow().getDecorView().setBackgroundColor(Color.BLACK);
-                }
-                if (luz >= 15000 && luz <= 30000) {
-                    getWindow().getDecorView().setBackgroundColor(Color.BLUE);
-                }
-                if (luz >= 30000 && luz <= 50000) {
-                    getWindow().getDecorView().setBackgroundColor(Color.GREEN);
-                }
-                lblSensorLuz.setText("VALOR: " + luz);
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
             }
 
             @Override
-            public void onAccuracyChanged(Sensor sensor, int i) {
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                stringArrayAdapter.getFilter().filter(charSequence);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
 
             }
-        };
-        iniciar();
+        });
+
+
+        ltsProductos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent mostrarProductos = new Intent(MainActivity.this, Editar.class);
+                mostrarProductos.putExtra("objetoData", stringArrayList.get(i));
+                startActivity(mostrarProductos);
+            }
+        });
     }
-
-    void iniciar() {
-        sensorManager.registerListener(sensorEventListener, sensor, 2000 * 1000);
-    }
-
-    void detener() {
-        sensorManager.unregisterListener(sensorEventListener);
-    }
-
-    }
-
-
-
+}
 
